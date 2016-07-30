@@ -63,7 +63,9 @@ class TaskListView extends Component {
   onDismissal(index, row) {
     var tasks = [this.state.overdueTasks, this.state.urgentTasks, this.state.upcomingTasks];
     var currentCategory = tasks[row];
-    currentCategory.splice(index, 1);
+    var removedTask = currentCategory.splice(index, 1);
+    console.log('removedTask.id is', removedTask[0].id);
+    socket.emit('complete task', removedTask[0].id);
     this.setState({
       currentCategory: currentCategory
     })
@@ -84,7 +86,7 @@ class TaskListView extends Component {
               }
               return (
                 <View >
-                  <Text style={styles.categoryName}> {categoryName} </Text> 
+                  <Text style={styles.categoryName}> {categoryName} </Text>
                     {category.map((task, index) =>
                       <Task task={task} onDismissal={this.onDismissal.bind(this, index, row)} key={index}/>
                     )}
