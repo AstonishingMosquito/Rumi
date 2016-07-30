@@ -6,28 +6,9 @@ import {
   View
 } from 'react-native';
 import socket from '../../socketClient';
-import Task from '../TaskList/TaskItem'
-
-const styles = StyleSheet.create({
-  taskList: {
-    backgroundColor: '#EAEAEA',
-    flex: 2,
-    alignItems: 'stretch',
-  },
-  taskCard: {
-    backgroundColor: '#fff',
-    flex: 2,
-    justifyContent: 'space-around',
-  },
-  titleText: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  baseText: {
-    fontSize: 20,
-  },
-});
+import Task from '../TaskList/TaskItem';
+import styles from '../../assets/styles.js';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 
 class CompleteTask extends Component {
